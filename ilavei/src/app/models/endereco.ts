@@ -1,4 +1,5 @@
 export class Endereco {
+
     numero: string;
     complemento: string;
     

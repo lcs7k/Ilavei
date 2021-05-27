@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user';
 import { Storage } from '@ionic/storage';
-import { UserServiceService } from '../../services/user-service.service';
-import { MsgService } from '../../services/msg.service';
+import {EnderecoService } from '../../services/endereco.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MsgService } from 'src/app/services/msg.service';
+import { Endereco } from 'src/app/models/endereco';
 
 @Component({
-  selector: 'app-user-add',
-  templateUrl: './user-add.page.html',
-  styleUrls: ['./user-add.page.scss'],
+  selector: 'app-endereco-add',
+  templateUrl: './endereco-add.page.html',
+  styleUrls: ['./endereco-add.page.scss'],
 })
+export class EnderecoAddPage implements OnInit {
 
-export class UserAddPage implements OnInit {
-
-  user: User = new User();
+  Endereco: Endereco = new Endereco();
   key: string = null;
+  EnderecoService: any;
 
   constructor(
     private storage: Storage,
     // public alertController: AlertController,
-    private userService: UserServiceService,
+    private userService: EnderecoAddPage,
     // public toastController: ToastController,
     protected msg: MsgService,
     private router: Router,
@@ -28,14 +28,14 @@ export class UserAddPage implements OnInit {
 
   ngOnInit() {
     this.key = this.activadeRouter.snapshot.paramMap.get('key');
-    this.getUser(this.key)
+    this.getEndereco(this.key)
   }
 
-  async getUser(key) {
+  async getEndereco(key) {
     if (key) {
-      await this.userService.get(key).subscribe(
+      await this.EnderecoService.get(key).subscribe(
         res => {
-          this.user = res;
+          this.Endereco = res;
           return true;
         },
         error => {
@@ -46,16 +46,38 @@ export class UserAddPage implements OnInit {
     }
   }
 
+  buscaCEP() {
+    this.EnderecoService.pegaCEP(this.Endereco.cep).subscribe(
+      res => {
+        console.log(res);
+        if (res.erro) {
+          this.msg.presentToast("CEP não localizado!");
+        } else {
+          //this.user = res;
+          //this.user.cep = res.cep;
+          this.Endereco.logradouro = res.logradouro;
+          this.Endereco.localidade = res.localidade;
+          this.Endereco.bairro = res.bairro;
+          this.Endereco.uf = res.uf;
+        }
+      },
+      error => {
+        console.error(error)
+      }
+    )
+  }
+
+
   salvar() {
     try {
       this.msg.presentLoading();
       if (this.key) {
-        this.userService.update(this.user, this.key).then(
+        this.EnderecoService.update(this.Endereco, this.key).then(
           res => {
             console.log('Dados Salvos firebase...', res);
             this.msg.dismissLoading();
             this.msg.presentAlert('Alerta', 'Usuário atualizado.');
-            this.user = new User();
+            this.Endereco = new Endereco();
             this.router.navigate(['']);
           },
           error => {
@@ -65,15 +87,12 @@ export class UserAddPage implements OnInit {
           }
         )
       } else {
-        this.userService.add(this.user).then(
+        this.EnderecoService.add(this.Endereco).then(
           res => {
-            console.log('Dados Salvos firebase...', res);
-            this.storage.set('nome', this.user.nome);
-            this.storage.set('email', this.user.email);
-            this.storage.set('senha', this.user.senha);
+            console.log('Dados Salvos firebase...', res)
             this.msg.dismissLoading();
             this.msg.presentAlert('Alerta', 'Usuário cadastrado.');
-            this.user = new User();
+            this.Endereco = new Endereco();
             this.router.navigate(['']);
           },
           error => {
@@ -93,7 +112,7 @@ export class UserAddPage implements OnInit {
 
   doRefresh(event) {
     console.log('Begin async operation');
-    if (this.getUser(this.key)) {
+    if (this.getEndereco(this.key)) {
       //setTimeout(() => {
       console.log('Async operation has ended');
       event.target.complete();
