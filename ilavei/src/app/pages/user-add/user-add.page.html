@@ -8,9 +8,9 @@
 
     <!-- Default Refresher -->
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
+        <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
-      
+
 
     <form #fc="ngForm" (ngSubmit)="salvar(fc)">
         <!-- Dados Pessoais -->
@@ -70,8 +70,8 @@
         <ion-text color="danger" *ngIf="(s.value != c.value) && c.dirty">Senhas diferentes!</ion-text>
 
         <!-- <ion-item> -->
-            <ion-button expand="block" type="submit" [disabled]="fc.invalid || (s.value != c.value)">Salvar</ion-button>
-            <ion-button expand="block" type="reset" color="danger">Cancelar</ion-button>
+        <ion-button expand="block" type="submit" [disabled]="fc.invalid || (s.value != c.value)">Salvar</ion-button>
+        <ion-button expand="block" type="reset" color="danger">Cancelar</ion-button>
         <!-- </ion-item> -->
     </form>
 </ion-content>

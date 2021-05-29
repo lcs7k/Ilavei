@@ -5,10 +5,15 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },  {
+  },
+  {
     path: 'user-list',
     loadChildren: () => import('./pages/user-list/user-list.module').then( m => m.UserListPageModule)
+  },  {
+    path: 'user-perfil',
+    loadChildren: () => import('./pages/user-perfil/user-perfil.module').then( m => m.UserPerfilPageModule)
   },
+
 
  
 
