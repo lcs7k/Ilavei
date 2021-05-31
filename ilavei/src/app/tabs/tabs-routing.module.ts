@@ -32,6 +32,11 @@ const routes: Routes = [
         path: 'user-perfil/:key',
         loadChildren: () => import('../pages/user-perfil/user-perfil.module').then( m => m.UserPerfilPageModule)
       },
+     
+      {
+        path: 'endereco-add/:key',
+        loadChildren: () => import('../pages/endereco-add/endereco-add-routing.module').then( m => m.EnderecoAddPageRoutingModule)
+      },
       
       {
         path: '',
