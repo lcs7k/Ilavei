@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Storage } from '@ionic/storage';
 import {EnderecoService } from '../../services/endereco.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MsgService } from 'src/app/services/msg.service';
@@ -12,14 +11,14 @@ import { Endereco } from 'src/app/models/endereco';
 })
 export class EnderecoAddPage implements OnInit {
 
-  Endereco: Endereco = new Endereco();
-  key: string = null;
+  endereco: Endereco = new Endereco();
+  userkey: string = null;
   EnderecoService: any;
 
   constructor(
-    private storage: Storage,
+    
     // public alertController: AlertController,
-    private userService: EnderecoAddPage,
+    private userService: EnderecoService,
     // public toastController: ToastController,
     protected msg: MsgService,
     private router: Router,
@@ -27,15 +26,15 @@ export class EnderecoAddPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.key = this.activadeRouter.snapshot.paramMap.get('key');
-    this.getEndereco(this.key)
+    this.userkey = this.activadeRouter.snapshot.paramMap.get('key');
+   
   }
 
   async getEndereco(key) {
     if (key) {
       await this.EnderecoService.get(key).subscribe(
         res => {
-          this.Endereco = res;
+          this.endereco = res;
           return true;
         },
         error => {
@@ -47,18 +46,18 @@ export class EnderecoAddPage implements OnInit {
   }
 
   buscaCEP() {
-    this.EnderecoService.pegaCEP(this.Endereco.cep).subscribe(
+    this.EnderecoService.pegaCEP(this.endereco.cep).subscribe(
       res => {
         console.log(res);
         if (res.erro) {
           this.msg.presentToast("CEP não localizado!");
         } else {
           //this.user = res;
-          //this.user.cep = res.cep;
-          this.Endereco.logradouro = res.logradouro;
-          this.Endereco.localidade = res.localidade;
-          this.Endereco.bairro = res.bairro;
-          this.Endereco.uf = res.uf;
+          //this.Endereco.cep = res.cep;
+          this.endereco.logradouro = res.logradouro;
+          this.endereco.localidade = res.localidade;
+          this.endereco.bairro = res.bairro;
+          this.endereco.uf = res.uf;
         }
       },
       error => {
@@ -71,13 +70,13 @@ export class EnderecoAddPage implements OnInit {
   salvar() {
     try {
       this.msg.presentLoading();
-      if (this.key) {
-        this.EnderecoService.update(this.Endereco, this.key).then(
+      if (this.userkey) {
+        this.EnderecoService.update(this.endereco, this.userkey).then(
           res => {
             console.log('Dados Salvos firebase...', res);
             this.msg.dismissLoading();
             this.msg.presentAlert('Alerta', 'Usuário atualizado.');
-            this.Endereco = new Endereco();
+            this.endereco = new Endereco();
             this.router.navigate(['']);
           },
           error => {
@@ -87,12 +86,12 @@ export class EnderecoAddPage implements OnInit {
           }
         )
       } else {
-        this.EnderecoService.add(this.Endereco).then(
+        this.EnderecoService.add(this.endereco).then(
           res => {
             console.log('Dados Salvos firebase...', res)
             this.msg.dismissLoading();
             this.msg.presentAlert('Alerta', 'Usuário cadastrado.');
-            this.Endereco = new Endereco();
+            this.endereco = new Endereco();
             this.router.navigate(['']);
           },
           error => {
@@ -112,7 +111,7 @@ export class EnderecoAddPage implements OnInit {
 
   doRefresh(event) {
     console.log('Begin async operation');
-    if (this.getEndereco(this.key)) {
+    if (this.getEndereco(this.userkey)) {
       //setTimeout(() => {
       console.log('Async operation has ended');
       event.target.complete();

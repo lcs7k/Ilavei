@@ -30,10 +30,12 @@ export class EnderecoListPage implements OnInit {
       }
     )   
   }
-
-  editar(usuario){
-    this.router.navigate(['/tabs/userAdd',usuario.key])
+   
+  
+  editar(endereco){
+    this.router.navigate([endereco.key])
   }
 
-
 }
+
+
