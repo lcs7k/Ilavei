@@ -33,10 +33,12 @@ const routes: Routes = [
         loadChildren: () => import('../pages/user-perfil/user-perfil.module').then( m => m.UserPerfilPageModule)
       },
 
+
       {
         path: 'endereco-add/:key',
         loadChildren: () => import('../pages/endereco-add/endereco-add.module').then( m => m.EnderecoAddPageModule)
       },
+
       
       {
         path: '',
