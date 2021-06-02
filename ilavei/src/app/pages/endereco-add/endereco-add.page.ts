@@ -23,6 +23,7 @@ export class EnderecoAddPage implements OnInit {
 
   ngOnInit() {
     this.userkey = this.activadeRouter.snapshot.paramMap.get('key');
+    this.endereco.userkey = this.userkey;
     //this.getEndereco(this.key)
   }
 
