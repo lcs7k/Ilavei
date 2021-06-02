@@ -63,28 +63,12 @@ export class EnderecoAddPage implements OnInit {
 
   salvar() {
     try {
-      this.msg.presentLoading();
-      if (this.userkey) {
-        this.enderecoService.update(this.endereco, this.userkey).then(
-          res => {
-            console.log('Dados Salvos firebase...', res);
-            this.msg.dismissLoading();
-            this.msg.presentAlert('Alerta', 'Usuário atualizado.');
-            this.endereco = new Endereco();
-            this.router.navigate(['']);
-          },
-          error => {
-            console.error("Erro ao salvar.", error);
-            this.msg.dismissLoading();
-            this.msg.presentAlert("Error", "Não foi possivel atualizar.");
-          }
-        )
-      } else {
+       this.msg.presentLoading();
         this.enderecoService.add(this.endereco).then(
           res => {
             console.log('Dados Salvos firebase...', res);
             this.msg.dismissLoading();
-            this.msg.presentAlert('Alerta', 'Usuário cadastrado.');
+            this.msg.presentAlert('Alerta', 'Endereço cadastrado.');
             this.endereco = new Endereco();
             this.router.navigate(['']);
           },
@@ -94,7 +78,7 @@ export class EnderecoAddPage implements OnInit {
             this.msg.presentAlert("Error", "Não foi possivel salvar.");
           }
         )
-      }
+      
     } catch (error) {
       console.error("Erro ao salvar.", error);
       this.msg.dismissLoading();
