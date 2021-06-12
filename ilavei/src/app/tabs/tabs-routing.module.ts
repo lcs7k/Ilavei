@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       {
         path: 'tab1',
-        loadChildren: () => import('../pages/user-list/user-list.module').then(m => m.UserListPageModule)
+        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
       },
       {
         path: 'tab2',
@@ -28,6 +28,11 @@ const routes: Routes = [
         path: 'userAdd',
         loadChildren: () => import('../pages/user-add/user-add.module').then( m => m.UserAddPageModule)
       },
+      {
+        path: 'login',
+        loadChildren: () => import('../pages/login/login.module').then( m => m.LoginPageModule)
+      },
+
       {
         path: 'userAdd/:key',
         loadChildren: () => import('../pages/user-add/user-add.module').then( m => m.UserAddPageModule)
