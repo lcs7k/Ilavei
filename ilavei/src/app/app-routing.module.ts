@@ -25,6 +25,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/lavagem/lavagem.module').then( m => m.LavagemPageModule)
   },
   
+  {
+    path: 'completa',
+    loadChildren: () => import('./pages/completa/completa.module').then( m => m.CompletaPageModule)
+  },
+  
   
   
   

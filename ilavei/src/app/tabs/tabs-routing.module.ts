@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       {
         path: 'tab1',
-        loadChildren: () => import('../pages/user-list/user-list.module').then(m => m.UserListPageModule)
+        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
       },
       {
         path: 'tab2',
@@ -29,6 +29,11 @@ const routes: Routes = [
         loadChildren: () => import('../pages/user-add/user-add.module').then( m => m.UserAddPageModule)
       },
       {
+        path: 'login',
+        loadChildren: () => import('../pages/login/login.module').then( m => m.LoginPageModule)
+      },
+
+      {
         path: 'userAdd/:key',
         loadChildren: () => import('../pages/user-add/user-add.module').then( m => m.UserAddPageModule)
       },
@@ -43,7 +48,24 @@ const routes: Routes = [
         path: 'endereco-add/:key',
         loadChildren: () => import('../pages/endereco-add/endereco-add.module').then( m => m.EnderecoAddPageModule)
       },
+      
+      {
+        path: 'lavagem',
+        loadChildren: () => import('../pages/lavagem/lavagem.module').then( m => m.LavagemPageModule)
+      },
 
+      {
+        path: 'estetica',
+        loadChildren: () => import('../pages/estetica/estetica.module').then( m => m.EsteticaPageModule)
+      },
+      
+      {
+        path: 'xcompleta',
+        loadChildren: () => import('../pages/completa/completa.module').then( m => m.CompletaPageModule)
+      },
+      
+      
+      
       
       {
         path: '',
