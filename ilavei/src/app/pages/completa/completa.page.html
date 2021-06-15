@@ -1,9 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>completa</ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- Toggles in a List -->
+<ion-list>
+    <br><br><br><br>
+    <ion-item>
+        <ion-label>Lavagem Simples</ion-label>
+        <ion-toggle color="primary" [(ngModel)]="primary"></ion-toggle>
+    </ion-item>
 
-<ion-content>
 
-</ion-content>
+    <ion-item>
+        <ion-label>Lavagem Completa</ion-label>
+        <ion-toggle color="success" [(ngModel)]="dark"></ion-toggle>
+
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Lavagem Master </ion-label>
+        <ion-toggle color="warning" [(ngModel)]="warning"></ion-toggle>
+    </ion-item>

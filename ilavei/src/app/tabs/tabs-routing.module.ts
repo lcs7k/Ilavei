@@ -60,7 +60,7 @@ const routes: Routes = [
       },
       
       {
-        path: 'xcompleta',
+        path: 'completa',
         loadChildren: () => import('../pages/completa/completa.module').then( m => m.CompletaPageModule)
       },
       
