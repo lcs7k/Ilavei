@@ -1,17 +1,30 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-header translucent>
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+        <ion-title>Nav</ion-title>
     </ion-toolbar>
-  </ion-header>
+</ion-header>
+<ion-content fullscreen>
+    <ion-list>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+        <ion-item button (click)="showDetail(tech.title)" *ngFor="let tech of techs">
+            <ion-icon slot="start" name="logo-{{tech.icon}}"></ion-icon>
+            <ion-label>
+                <h3>{{tech.title}}</h3> {{tech.icon}}
+            </ion-label>
+        </ion-item>
+
+    </ion-list>
+
+    <ion-header translucent>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="/"></ion-back-button>
+            </ion-buttons>
+            <ion-title>{{tech.title}}</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content fullscreen class="ion-padding">
+        <ion-icon name="logo-{{tech.icon}}" size="large"></ion-icon>
+        <p>{{tech.description}}</p>
+    </ion-content>
 </ion-content>
