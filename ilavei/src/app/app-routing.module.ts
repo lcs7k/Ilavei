@@ -30,6 +30,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/completa/completa.module').then( m => m.CompletaPageModule)
   },
   
+  {
+    path: 'pagamento',
+    loadChildren: () => import('./pages/pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+  },
+  
   
   
   
