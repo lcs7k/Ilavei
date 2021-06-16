@@ -20,6 +20,34 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
+  
+ 
+  {
+    path: 'ajuda',
+    loadChildren: () => import('./pages/ajuda/ajuda.module').then( m => m.AjudaPageModule)
+  },
+  {
+    path: 'endereco',
+    loadChildren: () => import('./pages/endereco/endereco.module').then( m => m.EnderecoPageModule)
+  },
+  {
+    path: 'conta',
+    loadChildren: () => import('./pages/conta/conta.module').then( m => m.ContaPageModule)
+  },
+  {
+    path: 'notificacao',
+    loadChildren: () => import('./pages/notificacao/notificacao.module').then( m => m.NotificacaoPageModule)
+  },
+
+  {
+    path: 'termos',
+    loadChildren: () => import('./pages/termos/termos.module').then( m => m.TermosPageModule)
+  },
+  {
+    path: 'pagamento',
+    loadChildren: () => import('./pages/pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+  },
+
 
 
 

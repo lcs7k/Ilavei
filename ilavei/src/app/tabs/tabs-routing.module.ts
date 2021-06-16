@@ -49,6 +49,31 @@ const routes: Routes = [
         loadChildren: () => import('../pages/endereco-add/endereco-add.module').then( m => m.EnderecoAddPageModule)
       },
 
+      {
+        path: 'ajuda',
+        loadChildren: () => import('../pages/ajuda/ajuda.module').then( m => m.AjudaPageModule)
+      },
+      {
+        path: 'conta',
+        loadChildren: () => import('../pages/conta/conta.module').then( m => m.ContaPageModule)
+      },
+      {
+        path: 'endereco',
+        loadChildren: () => import('../pages/endereco/endereco.module').then( m => m.EnderecoPageModule)
+      },
+      {
+        path: 'notificacao',
+        loadChildren: () => import('../pages/notificacao/notificacao.module').then( m => m.NotificacaoPageModule)
+      },
+      {
+        path: 'pagamento',
+        loadChildren: () => import('../pages/pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+      },
+      {
+        path: 'termos',
+        loadChildren: () => import('../pages/termos/termos.module').then( m => m.TermosPageModule)
+      },
+
       
       {
         path: '',
