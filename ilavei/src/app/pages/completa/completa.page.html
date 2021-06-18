@@ -1,22 +1,24 @@
 <!-- Toggles in a List -->
 <ion-list>
     <br><br><br><br>
-    <ion-item>
-        <ion-label>Lavagem Simples</ion-label>
-        <ion-toggle color="primary" [(ngModel)]="primary"></ion-toggle>
-    </ion-item>
-
-    <ion-item>
-        <ion-label>Lavagem Completa</ion-label>
-        <ion-toggle color="primary" [(ngModel)]="dark"></ion-toggle>
+    <ion-item *ngFor="let servico of servicos" (click)="calcular()">
+        <ion-label>{{servico.nome}}{{servico.valor}} </ion-label>
+        <ion-toggle color="primary" [(ngModel)]="servico.calculo"></ion-toggle>
 
     </ion-item>
+    <div class="iae">
+        {{valor}}
 
-    <ion-item>
-        <ion-label>Lavagem Master </ion-label>
-        <ion-toggle color="primary" [(ngModel)]="warning"></ion-toggle>
-    </ion-item>
+    </div>
+
+    <div class="botão">
+
+        <ion-button routerLink="/pagamento" color="secondary">Pagar</ion-button>
+        
+    </div>
 
     <div class="icon">
         <ion-icon routerLink="/tabs/tab2" name="arrow-back-outline"></ion-icon>
+
+
     </div>

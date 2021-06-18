@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EsteticaPage implements OnInit {
 servicos = [
-  {"valor":20, "nome":"serviço1" , "calculo":false},
-  {"valor":30, "nome":"serviço2" , "calculo":false},
-  {"valor":25, "nome":"serviço3" , "calculo":false},
-  {"valor":28, "nome":"serviço4" , "calculo":false},
-  {"valor":10, "nome":"serviço5", "calculo":false},
+  {"valor":10, "nome":"Polimento do Farol" , "calculo":false},
+  {"valor":20, "nome":"Cristalização de Vidro" , "calculo":false},
+  {"valor":25, "nome":"Espelhamento de Pintura" , "calculo":false},
+  {"valor":90, "nome":"Vitrificação" , "calculo":false},
+  {"valor":20, "nome":"Detalhamento", "calculo":false},
   
 ]
 valor=0;

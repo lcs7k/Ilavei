@@ -6,9 +6,16 @@
         <ion-toggle color="primary" [(ngModel)]="servico.calculo"></ion-toggle>
 
     </ion-item>
-    {{valor}}
+    <div class="iae">
+        {{valor}}
 
+    </div>
 
+    <div class="botão">
+
+        <ion-button routerLink="/pagamento" color="secondary">Pagar</ion-button>
+        
+    </div>
 
     <div class="icon">
         <ion-icon routerLink="/tabs/tab2" name="arrow-back-outline"></ion-icon>
