@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LavagemPage implements OnInit {
   servicos = [
-    {"valor":10, "nome":"Interna" , "calculo":false},
-    {"valor":20, "nome":"Limpeza Banco de Couros" , "calculo":false},
-    {"valor":25, "nome":"Limpeza Técnica de Motor" , "calculo":false}, 
-    {"valor":90, "nome":"Oxi-Sanitização " , "calculo":false},
-    {"valor":20, "nome":"Limpeza de Ar ", "calculo":false},
+    {"valor":10, "nome":"Interna   R$10,00" , "calculo":false},
+    {"valor":30, "nome":"Limpeza Banco de Couros R$20,00 " , "calculo":false},
+    {"valor":25, "nome":"Limpeza Técnica de Motor R$25,00" , "calculo":false}, 
+    {"valor":90, "nome":"Oxi-Sanitização R$90,00 " , "calculo":false},
+    {"valor":20, "nome":"Limpeza de Ar R$20,00 ", "calculo":false},
     
   ]
   valor=0;

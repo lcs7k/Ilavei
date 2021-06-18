@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompletaPage implements OnInit {
   servicos = [
-    {"valor":10, "nome":"Polimento do Farol" , "calculo":false},
-    {"valor":20, "nome":"Cristalização de Vidro" , "calculo":false},
-    {"valor":25, "nome":"Espelhamento de Pintura" , "calculo":false},
+    {"valor":10, "nome":"Polimento do Farol R$10,00" , "calculo":false},
+    {"valor":20, "nome":"Cristalização de Vidro R$20,00" , "calculo":false},
+    {"valor":25, "nome":"Espelhamento de Pintura R$25,00" , "calculo":false},
     
   ]
   valor=0;

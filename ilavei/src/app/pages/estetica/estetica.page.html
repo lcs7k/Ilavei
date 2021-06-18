@@ -1,8 +1,13 @@
 <!-- Toggles in a List -->
 <ion-list>
-    <br><br><br><br>
+    <div class="ti">
+        <h2>Escolha o seu Serviço</h2>
+    </div>
+    <br>
     <ion-item *ngFor="let servico of servicos" (click)="calcular()">
-        <ion-label>{{servico.nome}}{{servico.valor}} </ion-label>
+        <ion-label>
+            <h3>{{servico.nome}}</h3>
+        </ion-label>
         <ion-toggle color="primary" [(ngModel)]="servico.calculo"></ion-toggle>
 
     </ion-item>
@@ -14,7 +19,7 @@
     <div class="botão">
 
         <ion-button routerLink="/pagamento" color="secondary">Pagar</ion-button>
-        
+
     </div>
 
     <div class="icon">
