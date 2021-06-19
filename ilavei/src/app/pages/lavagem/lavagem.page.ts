@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class LavagemPage implements OnInit {
   servicos = [
     {"valor":10, "nome":"Interna   R$10,00" , "calculo":false},
-    {"valor":30, "nome":"Limpeza Banco de Couros R$20,00 " , "calculo":false},
-    {"valor":25, "nome":"Limpeza Técnica de Motor R$25,00" , "calculo":false}, 
+    {"valor":160, "nome":"Limpeza Banco de Couros R$160,00 " , "calculo":false},
+    {"valor":90, "nome":"Limpeza Técnica de Motor R$90,00" , "calculo":false}, 
     {"valor":90, "nome":"Oxi-Sanitização R$90,00 " , "calculo":false},
-    {"valor":20, "nome":"Limpeza de Ar R$20,00 ", "calculo":false},
+    {"valor":150, "nome":"Limpeza de Ar R$150,00 ", "calculo":false},
     
   ]
   valor=0;
