@@ -11,44 +11,44 @@ export class Tab3Page {
 
   techs = [
     {
-      'title': 'Angular',
-      'icon': 'angular',
+      'title': 'Conta',
+      'icon': 'person-outline',
       'description': 'A powerful Javascript framework for building single page apps. Angular is open source, and maintained by Google.',
-      'color': '#E63135',
-      'route': '/tabs/login'
+      'color': '#3575AC',
+      'route': '/tabs/conta'
     }, {
-      'title': 'CSS3',
-      'icon': 'css3',
+      'title': 'Pagamentos',
+      'icon': 'card-outline',
       'description': 'The latest version of cascading stylesheets - the styling language of the web!',
       'color': '#3575AC',
-      'route': '/tabs/login'
+      'route': '/tabs/pagamento'
     }, {
-      'title': 'HTML5',
-      'icon': 'html5',
+      'title': 'Endereços',
+      'icon': 'locate-outline',
       'description': 'The latest version of the web\'s markup language.',
       'color': '#3575AC',
-      'route': '/tabs/login'
+      'route': '/tabs/enderecos'
     }, {
-      'title': 'JavaScript',
-      'icon': 'javascript',
+      'title': 'Notificações',
+      'icon': 'notifications-outline',
       'description': 'One of the most popular programming languages on the Web!',
       'color': '#3575AC',
-      'route': '/tabs/login'
+      'route': '/tabs/notificacao'
     }, {
-      'title': 'Sass',
-      'icon': 'sass',
+      'title': 'Ajuda',
+      'icon': 'help-outline',
       'description': 'Syntactically Awesome Stylesheets - a mature, stable, and powerful professional grade CSS extension.',
       'color': '#3575AC',
-      'route': '/tabs/login'
+      'route': '/tabs/ajuda'
     }, {
-      'title': 'NodeJS',
-      'icon': 'nodejs',
+      'title': 'Termos de Uso',
+      'icon': 'reader-outline',
       'description': 'An open-source, cross-platform runtime environment for developing server-side Web applications.',
       'color': '#3575AC',
-      'route': '/tabs/login'
+      'route': '/tabs/termos'
     }, {
       'title': 'sair',
-      'icon': 'python',
+      'icon': 'exit-outline',
       'description': 'A clear and powerful object-oriented programming language!',
       'color': '#3575AC',
       'route': '/tabs/login'

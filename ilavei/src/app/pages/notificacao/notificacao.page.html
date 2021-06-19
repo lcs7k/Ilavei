@@ -1,9 +1,35 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>notificacao</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <img style="display: block;  " src="assets/back.png" routerLink="/tabs/tab3">
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label>Promoções</ion-label>
+            <ion-toggle [(ngModel)]="promo"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Informações</ion-label>
+            <ion-toggle [(ngModel)]="info"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Alertas</ion-label>
+            <ion-toggle [(ngModel)]="alert"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Atualizações</ion-label>
+            <ion-toggle [(ngModel)]="atualizacao"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Mensagens</ion-label>
+            <ion-toggle [(ngModel)]="mensagem"></ion-toggle>
+        </ion-item>
+    </ion-list>
 
 </ion-content>

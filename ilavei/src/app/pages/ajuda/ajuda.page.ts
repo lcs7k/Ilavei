@@ -8,6 +8,21 @@ import { Component, OnInit } from '@angular/core';
 export class AjudaPage implements OnInit {
 
   constructor() { }
+  
+  techs = [
+    {
+      'title': 'Dados Pessoais',
+    }, {
+      'title': 'Segurança',
+      
+    }, {
+      'title': 'Privacidade',
+     
+    }, {
+      'title': 'Excluir Conta',
+     
+    }, 
+  ];
 
   ngOnInit() {
   }

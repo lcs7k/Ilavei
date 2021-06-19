@@ -1,41 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Endereco } from 'src/app/models/endereco';
-import { EnderecoService } from 'src/app/services/endereco.service';
-
+import { UserServiceService } from 'src/app/services/user-service.service';
+import { User } from '../../models/user';
 
 @Component({
-  selector: 'app-endereco-list',
-  templateUrl: './endereco-list.page.html',
-  styleUrls: ['./endereco-list.page.scss'],
+  selector: 'app-user-list',
+  templateUrl: './user-list.page.html',
+  styleUrls: ['./user-list.page.scss'],
 })
-export class EnderecoListPage implements OnInit {
+export class UserListPage implements OnInit {
 
-  endereco:Endereco[] = [];
- 
+  users:User[] = [];
 
   constructor(
-    private enderecoService:EnderecoService,
+    private userServiceService:UserServiceService,
     private router:Router
   ) { }
 
   ngOnInit() {
-    this.enderecoService.getAll().subscribe(
+    this.userServiceService.getAll().subscribe(
       res=>{
-        this.endereco = res;
-        console.log(this.endereco);
+        this.users = res;
+        console.log(this.users);
       },
       erro =>{
 
       }
     )   
   }
-   
-  
-  editar(endereco){
-    this.router.navigate([endereco.key])
+
+  editar(usuario){
+    this.router.navigate(['/tabs/userAdd',usuario.key])
   }
 
+
 }
-
-

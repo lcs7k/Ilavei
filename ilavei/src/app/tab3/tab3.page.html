@@ -2,7 +2,7 @@
     <ion-nav>
         <ion-list>
             <ion-item routerLink="{{tech.route}}" *ngFor="let tech of techs">
-                <ion-icon slot="start" name="logo-{{tech.icon}}" style="color:{{tech.color}}"></ion-icon>
+                <ion-icon slot="start" name="{{tech.icon}}" style="color:{{tech.color}}"></ion-icon>
                 <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
                 <ion-label>
                     <h3>{{tech.title}}</h3>

@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'user-perfil',
     loadChildren: () => import('./pages/user-perfil/user-perfil.module').then( m => m.UserPerfilPageModule)
   },
+  {
+    path: 'endereco-list',
+    loadChildren: () => import('./pages/endereco-list/endereco-list.module').then( m => m.EnderecoListPageModule)
+  },
 
   {
     path: 'tab4',
@@ -21,14 +25,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   
- 
   {
     path: 'ajuda',
     loadChildren: () => import('./pages/ajuda/ajuda.module').then( m => m.AjudaPageModule)
   },
   {
-    path: 'endereco',
-    loadChildren: () => import('./pages/endereco/endereco.module').then( m => m.EnderecoPageModule)
+    path: 'enderecos',
+    loadChildren: () => import('./pages/enderecos/enderecos.module').then( m => m.EnderecosPageModule)
   },
   {
     path: 'conta',
@@ -46,6 +49,10 @@ const routes: Routes = [
   {
     path: 'pagamento',
     loadChildren: () => import('./pages/pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+  },
+  {
+    path: 'enderecos',
+    loadChildren: () => import('./pages/enderecos/enderecos.module').then( m => m.EnderecosPageModule)
   },
 
 

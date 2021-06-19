@@ -58,9 +58,10 @@ const routes: Routes = [
         loadChildren: () => import('../pages/conta/conta.module').then( m => m.ContaPageModule)
       },
       {
-        path: 'endereco',
-        loadChildren: () => import('../pages/endereco/endereco.module').then( m => m.EnderecoPageModule)
+        path: 'enderecos',
+        loadChildren: () => import('../pages/enderecos/enderecos.module').then( m => m.EnderecosPageModule)
       },
+     
       {
         path: 'notificacao',
         loadChildren: () => import('../pages/notificacao/notificacao.module').then( m => m.NotificacaoPageModule)
@@ -73,8 +74,10 @@ const routes: Routes = [
         path: 'termos',
         loadChildren: () => import('../pages/termos/termos.module').then( m => m.TermosPageModule)
       },
-
-      
+      {
+        path: 'endereco-list',
+        loadChildren: () => import('../pages/endereco-list/endereco-list.module').then( m => m.EnderecoListPageModule)
+      },
       {
         path: '',
         redirectTo: '/tabs/tab1',
