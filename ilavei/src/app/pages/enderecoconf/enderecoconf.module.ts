@@ -4,16 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EnderecosPageRoutingModule } from './enderecos-routing.module';
+import { EnderecoconfPageRoutingModule } from './enderecoconf-routing.module';
 
-
+import { EnderecoconfPage } from './enderecoconf.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EnderecosPageRoutingModule
+    EnderecoconfPageRoutingModule
   ],
+  declarations: [EnderecoconfPage]
 })
-export class EnderecosPageModule {}
+export class EnderecoconfPageModule {}

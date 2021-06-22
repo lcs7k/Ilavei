@@ -27,7 +27,7 @@ export class Tab3Page {
       'icon': 'locate-outline',
       'description': 'The latest version of the web\'s markup language.',
       'color': '#3575AC',
-      'route': '/tabs/enderecos'
+      'route': '/tabs/enderecoconf'
     }, {
       'title': 'Notificações',
       'icon': 'notifications-outline',

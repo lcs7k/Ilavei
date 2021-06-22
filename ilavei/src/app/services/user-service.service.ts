@@ -4,6 +4,8 @@ import { User } from "../models/user";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { map } from 'rxjs/operators';
 import { AngularFireAuth } from "@angular/fire/auth";
+import { Router } from "@angular/router";
+
 
 @Injectable({
   providedIn: "root"
@@ -12,7 +14,8 @@ export class UserServiceService {
   constructor(
     private http: HttpClient,
     private firedb:AngularFirestore,
-    private auth:AngularFireAuth
+    private auth:AngularFireAuth,
+    private  router:Router
   ) { }
 
     add(usuario:User){
@@ -57,4 +60,20 @@ export class UserServiceService {
   delete(key){
     return this.firedb.collection("usuarios").doc(key).delete();
   }
+
+  verifuser (){
+     return this.auth.user;
+      
+    
+  }
+
+  logout(){
+    this.auth.signOut().then(
+      res => {
+        this.router.navigate([""])
+      }
+    )
+  }
+  
+
 }

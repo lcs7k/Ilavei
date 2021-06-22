@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EnderecosPageModule } from './enderecos.module';
 
+import { EnderecoconfPage } from './enderecoconf.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: EnderecosPageModule
+    component: EnderecoconfPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class EnderecosPageRoutingModule {}
+export class EnderecoconfPageRoutingModule {}
