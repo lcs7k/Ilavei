@@ -8,4 +8,4 @@ export class Endereco {
     localidade: string;
     uf: string;
     erro:boolean = false;
-}
+}   

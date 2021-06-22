@@ -6,11 +6,11 @@
         <h2>Escolha o seu Serviço</h2>
     </div>
     <br><br>
-    <ion-item *ngFor="let servico of servicos" (click)="calcular()">
+    <ion-item *ngFor="let completa of completa" (click)="calcular()">
         <ion-label>
-            <h3>{{servico.nome}}</h3>
+            <h3>{{completa.nome}}</h3>
         </ion-label>
-        <ion-toggle color="primary" [(ngModel)]="servico.calculo"></ion-toggle>
+        <ion-toggle color="primary" [(ngModel)]="completa.calculo"></ion-toggle>
 
     </ion-item>
     <div class="iae">
@@ -20,7 +20,7 @@
 
     <div class="botão">
 
-        <ion-button routerLink="/pagamento" color="secondary">Pagar</ion-button>
+        <ion-button (ngSubmit)="salvar(fc)" routerLink="/pagamento" color="secondary">Pagar</ion-button>
 
     </div>
 

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Completa } from 'src/app/models/completa';
+import { CompletaPage } from '../completa/completa.page';
+
+
 
 @Component({
   selector: 'app-lavagem',
@@ -6,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lavagem.page.scss'],
 })
 export class LavagemPage implements OnInit {
+  completa:Completa = new Completa();
+  userkey: string = null;
   servicos = [
+    
+    
     {"valor":10, "nome":"Interna   R$10,00" , "calculo":false},
     {"valor":160, "nome":"Limpeza Banco de Couros R$160,00 " , "calculo":false},
     {"valor":90, "nome":"Limpeza Técnica de Motor R$90,00" , "calculo":false}, 
@@ -15,10 +23,16 @@ export class LavagemPage implements OnInit {
     
   ]
   valor=0;
-    constructor() { }
+    constructor() {
+      
+     }
   
     ngOnInit() {
+      
+      
     }
+
+    
     calcular(){
       this.valor=0
       for(let x=0;x< this.servicos.length;x++){
