@@ -2,45 +2,45 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Completa } from "../models/completa";
 import { AngularFirestore } from "@angular/fire/firestore";
+import { CompletaPage } from "../pages/completa/completa.page";
+import { AngularFireAuth } from "@angular/fire/auth";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompletaService {
+  
 
   constructor(
     private http: HttpClient,
-    private firedb: AngularFirestore
+    private firedb:AngularFirestore,
+    private auth:AngularFireAuth
   ) { }
 
 
-  add(completa: Completa) {
-    return this.firedb.collection<Completa>("completa").add(
+  add(lavagem:Completa){
+    return this.firedb.collection<Completa>("lavagem").add(
       {
-        simples:completa.simples,
-        master: completa.master,
-        completa: completa.completa,
-        valor: completa.valor,
+        simples:lavagem.simples,
+        master : lavagem.master,
+        completa: lavagem.completa,
+        valor : lavagem.valor,
+        
       }
     )
   }
 
-  getAll() {
-    //return this.firedb.collection<User>("completa").valueChanges()
-    return this.firedb.collection<Completa>("completa").snapshotChanges()
 
+  get(key){
+    return this.firedb.collection<Completa>("lavagem").doc(key).valueChanges();
   }
 
-  get(key) {
-    return this.firedb.collection<Completa>("completa").doc(key).valueChanges();
+  update(lavagem:Completa, key:string){
+    return this.firedb.collection<Completa>("lavagem").doc(key).update(lavagem  );
   }
 
-  update(user: Completa, key: string) {
-    return this.firedb.collection<Completa>("completa").doc(key).update(user);
-  }
-
-  delete(key) {
-    return this.firedb.collection("completa").doc(key).delete();
+  delete(key){
+    return this.firedb.collection("lavagem").doc(key).delete();
   }
 }
