@@ -11,15 +11,13 @@ export class AjudaPage implements OnInit {
   
   techs = [
     {
-      'title': 'Dados Pessoais',
-    }, {
-      'title': 'Segurança',
-      
-    }, {
-      'title': 'Privacidade',
+      'title': 'Duvidas Frequentes',
+    }, 
+     {
+      'title': 'Contato',
      
     }, {
-      'title': 'Excluir Conta',
+      'title': 'Chat',
      
     }, 
   ];

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UserServiceService } from '../services/user-service.service';
+
 
 @Component({
   selector: 'app-tab3',
@@ -7,7 +9,9 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() { }
+  constructor(
+    private userService:UserServiceService
+  ) { }
 
   techs = [
     {
@@ -46,12 +50,10 @@ export class Tab3Page {
       'description': 'An open-source, cross-platform runtime environment for developing server-side Web applications.',
       'color': '#3575AC',
       'route': '/tabs/termos'
-    }, {
-      'title': 'sair',
-      'icon': 'exit-outline',
-      'description': 'A clear and powerful object-oriented programming language!',
-      'color': '#3575AC',
-      'route': '/tabs/login'
     }, 
   ];
+
+  sair(){
+    this.userService.logout();
+  }
 }

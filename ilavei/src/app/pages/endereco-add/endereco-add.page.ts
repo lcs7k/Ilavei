@@ -13,6 +13,7 @@ export class EnderecoAddPage implements OnInit {
 
   endereco: Endereco = new Endereco();
   userkey: string = null;
+  key:string = null;
 
   constructor(
     private enderecoService: EnderecoService,
@@ -22,9 +23,10 @@ export class EnderecoAddPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.userkey = this.activadeRouter.snapshot.paramMap.get('key');
+    this.key = this.activadeRouter.snapshot.paramMap.get('key');
+    this.userkey = this.activadeRouter.snapshot.paramMap.get('userkey');
     this.endereco.userkey = this.userkey; 
-    //this.getEndereco(this.key)
+    this.getEndereco(this.key)
   }
 
   async getEndereco(key) {

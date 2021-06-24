@@ -43,6 +43,10 @@ const routes: Routes = [
       },
       //endereco
       {
+        path: 'endereco-add/user/:userkey',
+        loadChildren: () => import('../pages/endereco-add/endereco-add.module').then(m => m.EnderecoAddPageModule)
+      },
+      {
         path: 'endereco-add/:key',
         loadChildren: () => import('../pages/endereco-add/endereco-add.module').then(m => m.EnderecoAddPageModule)
       },
