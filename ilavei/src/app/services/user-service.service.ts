@@ -22,15 +22,23 @@ export class UserServiceService {
     return this.auth.createUserWithEmailAndPassword(usuario.email, usuario.senha).then(
 
       res => {
-        return this.firedb.collection<User>("usuarios").doc(res.user.uid).set({
+        
+        this.firedb.collection<User>("usuarios").doc(res.user.uid).set({
           nome: usuario.nome,
           email: usuario.email,
           senha: null,
           foto: usuario.foto,
           key: usuario.key,
-          ativo:usuario.ativo
+          ativo: usuario.ativo,
+          promo:usuario.promo,
+          info:usuario.info,
+          alert:usuario.alert,
+          atualizacao:usuario.atualizacao,
+          mensagem:usuario.mensagem
 
-        });
+        }).catch(
+          resuser=>res.user.delete()
+        )
 
       },
       error => {
@@ -41,7 +49,7 @@ export class UserServiceService {
 
   getAll() {
     //return this.firedb.collection<User>("usuarios").valueChanges()
-    return this.firedb.collection<User>("usuarios",query => query.where("ativo","==",true) ).snapshotChanges()
+    return this.firedb.collection<User>("usuarios", query => query.where("ativo", "==", true)).snapshotChanges()
       .pipe(
         map(dados =>
           dados.map(
@@ -54,7 +62,7 @@ export class UserServiceService {
   }
 
   get(key) {
-    return this.firedb.collection<User>("usuarios").doc(key).valueChanges();
+    return this.firedb.collection<User>("usuarios", query => query.where("ativo", "==", true)).doc(key).valueChanges();
   }
 
   update(user: User, key: string) {
@@ -65,15 +73,17 @@ export class UserServiceService {
   //   return this.firedb.collection("usuarios").doc(key).delete();
   // }
 
-  delete() {
-     this.auth.user.subscribe(
-     res =>{
-     
-      return this.firedb.collection("usuarios").doc(res.uid).update({ ativo: false });
 
-     }
-   )
+  delete() {
+    this.auth.user.subscribe(
+      res => {
+        this.firedb.collection("usuarios").doc(res.uid).update({ ativo: false });
+        res.delete();
+      }
+    )
   }
+
+
 
   verifuser() {
     return this.auth.user;

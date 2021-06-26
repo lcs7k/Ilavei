@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserServiceService } from 'src/app/services/user-service.service';
@@ -9,36 +10,33 @@ import { UserServiceService } from 'src/app/services/user-service.service';
   styleUrls: ['./user-perfil.page.scss'],
 })
 export class UserPerfilPage implements OnInit {
-  key:string = null;
 
-  user:User = new User;
-
-
-
+key: string = null;
+  user: User = new User;
 
   constructor(
-    private activatedRouter: ActivatedRoute,
-    private userService:UserServiceService
+    private userService: UserServiceService,
+    private auth: AngularFireAuth
 
   ) { }
 
   ngOnInit() {
-    this.key = this.activatedRouter.snapshot.paramMap.get('key');
-    this.getUser(this.key);
+    this.getUser();
   }
 
-  async getUser(key) {
-    if (key) {
-      await this.userService.get(key).subscribe(
-        res => {
-          this.user = res;
-          return true;
-        },
-        error => {
-          console.log("ERRO:", error);
-          return false;
-        }
-      )
-    }
+  async getUser() {
+    await this.auth.user.subscribe(
+      res => {
+        this.userService.get(res.uid).subscribe(
+          resuser => {
+            this.user = resuser;
+            this.key = res.uid;
+            console.log(resuser);
+
+          }
+        )
+      }
+
+    )
   }
 }

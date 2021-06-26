@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
@@ -10,8 +11,9 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 export class ContaPage implements OnInit {
 
   constructor(
-    private userService:UserServiceService,
-    private alertController:AlertController
+    private userService: UserServiceService,
+    private alertController: AlertController,
+    private router:Router
   ) { }
 
   techs = [
@@ -19,17 +21,16 @@ export class ContaPage implements OnInit {
       'title': 'Dados Pessoais',
     }, {
       'title': 'Segurança',
-      
-    }, {
+    },
+    {
       'title': 'Privacidade',
-     
-    }, 
+    },
   ];
 
   ngOnInit() {
   }
 
-  async excluir(){
+  async excluir() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       //eader: 'Confirm!',
@@ -40,12 +41,13 @@ export class ContaPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Deseja Excluir Conta?');
+            //console.log('Deseja Excluir Conta?');
           }
         }, {
           text: 'Sim',
           handler: () => {
             this.userService.delete();
+            this.router.navigate(['']);
           }
         }
       ]
@@ -54,6 +56,6 @@ export class ContaPage implements OnInit {
     await alert.present();
   }
 
- 
-  
+
+
 }
