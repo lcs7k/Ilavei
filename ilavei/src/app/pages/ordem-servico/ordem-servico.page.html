@@ -1,0 +1,21 @@
+<!-- Toggles in a List -->
+<ion-list>
+    <br><br><br><br>
+    <ion-item *ngFor="let od of listaOrdem" (click)="calcular()">
+        <ion-label>{{od.nome}} {{od.valor | currency:'BRL' }} </ion-label>
+        <ion-toggle color="primary" [(ngModel)]="od.calculo"></ion-toggle>
+
+    </ion-item>
+</ion-list>
+<div class="iae">
+    {{valor}}
+</div>
+
+<div class="botão">
+    <ion-button color="secondary" (click)="Valor()">Pagar</ion-button>
+
+</div>
+
+<div class="icon">
+    <ion-icon routerLink="/tabs/tab2" name="arrow-back-outline"></ion-icon>
+</div>

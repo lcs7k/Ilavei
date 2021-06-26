@@ -20,20 +20,36 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
-  {
-    path: 'lavagem',
-    loadChildren: () => import('./pages/lavagem/lavagem.module').then( m => m.LavagemPageModule)
-  },
+  // {
+  //   path: 'lavagem',
+  //   loadChildren: () => import('./pages/lavagem/lavagem.module').then( m => m.LavagemPageModule)
+  // },
   
-  {
-    path: 'completa',
-    loadChildren: () => import('./pages/completa/completa.module').then( m => m.CompletaPageModule)
-  },
+  // {
+  //   path: 'completa',
+  //   loadChildren: () => import('./pages/completa/completa.module').then( m => m.CompletaPageModule)
+  // },
   
-  {
-    path: 'pagamento',
-    loadChildren: () => import('./pages/pagamento/pagamento.module').then( m => m.PagamentoPageModule)
-  },
+  // {
+  //   path: 'pagamento',
+  //   loadChildren: () => import('./pages/pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+  // },
+  // {
+  //   path: 'servicos',
+  //   loadChildren: () => import('./pages/servicos/servicos.module').then( m => m.ServicosPageModule)
+  // },
+  // {
+  //   path: 'servicosrealizados',
+  //   loadChildren: () => import('./pages/servicosrealizados/servicosrealizados.module').then( m => m.ServicosrealizadosPageModule)
+  // },
+  // {
+  //   path: 'realizados',
+  //   loadChildren: () => import('./pages/realizados/realizados.module').then( m => m.RealizadosPageModule)
+  // },
+  // {
+  //   path: 'ordem-servico',
+  //   loadChildren: () => import('./pages/ordem-servico/ordem-servico.module').then( m => m.OrdemServicoPageModule)
+  // },
   
   
   

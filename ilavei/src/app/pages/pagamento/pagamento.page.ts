@@ -10,6 +10,7 @@ export class PagamentoPage implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    
   }
 
 }

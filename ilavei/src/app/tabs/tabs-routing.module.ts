@@ -50,21 +50,11 @@ const routes: Routes = [
       },
       
       {
-        path: 'lavagem',
-        loadChildren: () => import('../pages/lavagem/lavagem.module').then( m => m.LavagemPageModule)
+        path: 'ordem/:key',
+        loadChildren: () => import('../pages/ordem-servico/ordem-servico.module').then( m => m.OrdemServicoPageModule)
       },
 
-      {
-        path: 'estetica',
-        loadChildren: () => import('../pages/estetica/estetica.module').then( m => m.EsteticaPageModule)
-      },
-      
-      {
-        path: 'completa',
-      
-        loadChildren: () => import('../pages/completa/completa.module').then( m => m.CompletaPageModule)
-      },
-      
+       
       
       
       

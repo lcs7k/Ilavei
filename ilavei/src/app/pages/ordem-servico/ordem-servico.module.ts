@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CompletaPageRoutingModule } from './completa-routing.module';
+import { OrdemServicoPageRoutingModule } from './ordem-servico-routing.module';
 
-import { CompletaPage } from './completa.page';
+import { OrdemServicoPage } from './ordem-servico.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CompletaPageRoutingModule
+    OrdemServicoPageRoutingModule
   ],
-  declarations: [CompletaPage]
+  declarations: [OrdemServicoPage]
 })
-export class CompletaPageModule {}
+export class OrdemServicoPageModule {}

@@ -1,7 +1,12 @@
-export class Completa {
-    master:string;
-    valoor: string;
-    simples: boolean = false;
-    completaa: boolean = false;
+export class Servico {
+    nome:string;
+    avaliservico: string;
+    cancelamento: string;
+    dataservico: string;
+    descricao: string;
+    ordeservico: string;
+    pagamento: string = null;
+    reclamacao: string;
+    erro: boolean = false;
 
 }

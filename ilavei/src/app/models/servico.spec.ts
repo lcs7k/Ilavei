@@ -1,7 +1,7 @@
-import { Completa } from './servico';
+import { Servico } from './servico';
 
-describe('Completa', () => {
+describe('Servico', () => {
   it('should create an instance', () => {
-    expect(new Completa()).toBeTruthy();
+    expect(new Servico()).toBeTruthy();
   });
 });
