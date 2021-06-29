@@ -54,7 +54,11 @@ const routes: Routes = [
         loadChildren: () => import('../pages/ordem-servico/ordem-servico.module').then( m => m.OrdemServicoPageModule)
       },
 
-       
+      {
+        path: 'pagamento/:key',
+        loadChildren: () => import('../pages/pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+      },
+
       
       
       

@@ -1,0 +1,31 @@
+<!-- Toggles in a List -->
+<ion-list>
+    <br><br><br><br>
+
+    <div class="ti">
+        <h2>Escolha o seu Serviço</h2>
+    </div>
+    <br><br>
+    <ion-item *ngFor="let completa of completa" (click)="calcular()">
+        <ion-label>
+            <h3>{{completa.nome}}</h3>
+        </ion-label>
+        <ion-toggle color="primary" [(ngModel)]="completa.calculo"></ion-toggle>
+
+    </ion-item>
+    <div class="iae">
+        {{valor}}
+
+    </div>
+
+    <div class="botão">
+
+        <ion-button (ngSubmit)="Salvar(fc)" routerLink="/pagamento" color="secondary">Pagar</ion-button>
+
+    </div>
+
+    <div class="icon">
+        <ion-icon routerLink="/tabs/tab2" name="arrow-back-outline"></ion-icon>
+
+
+    </div>

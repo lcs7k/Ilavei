@@ -30,10 +30,10 @@ const routes: Routes = [
   //   loadChildren: () => import('./pages/completa/completa.module').then( m => m.CompletaPageModule)
   // },
   
-  // {
+  //  {
   //   path: 'pagamento',
-  //   loadChildren: () => import('./pages/pagamento/pagamento.module').then( m => m.PagamentoPageModule)
-  // },
+  //    loadChildren: () => import('./pages/pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+  //  },
   // {
   //   path: 'servicos',
   //   loadChildren: () => import('./pages/servicos/servicos.module').then( m => m.ServicosPageModule)
@@ -46,18 +46,12 @@ const routes: Routes = [
   //   path: 'realizados',
   //   loadChildren: () => import('./pages/realizados/realizados.module').then( m => m.RealizadosPageModule)
   // },
-  // {
+  //  {
   //   path: 'ordem-servico',
   //   loadChildren: () => import('./pages/ordem-servico/ordem-servico.module').then( m => m.OrdemServicoPageModule)
   // },
   
   
-  
-  
-
-
-
- 
 
 ];
 @NgModule({

@@ -1,9 +1,12 @@
   
 export class Pagamento {
-    dinheiro:string;
-    debito: string;
-    credito: string;
-    pix: string;
-
-    
+    cvv:string;
+    nome: string;
+    numcartao: string;
+    validadeano: string;
+    validademes: string;
+    pagamantokey: string;
+    ativo: boolean = true;
+    calculo: boolean = true;
+    valor:number;
 }   

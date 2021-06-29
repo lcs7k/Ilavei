@@ -24,6 +24,7 @@ export class OrdemService {
         ordemkey:ordem.ordemkey,
         tipo:ordem.tipo,
         valor:ordem.valor,
+      
       }
     )
   }
