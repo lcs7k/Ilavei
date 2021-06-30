@@ -21,6 +21,20 @@
         <ion-item lines="none">
             <!-- <ion-label>Senha</ion-label> -->
             <ion-input class="campo" placeholder="Senha" style="text-align: center; color: rgb(0, 85, 165);" type="password" [(ngModel)]='senha' name="senha" #s="ngModel" minlength="6">
+
+    <div class="form">
+
+        <img style="display: block;  margin-left: auto; margin-right: auto;" src="assets/ilavei.png" alt="">
+        <ion-title style="text-align: center; color: rgb(0, 85, 165);">Login</ion-title>
+
+       
+        <ion-item>
+            <!-- <ion-label>E-mail</ion-label> -->
+            <ion-input class="campo" placeholder="Nome" style="text-align: center; color: rgb(0, 255, 255);" type="email" [(ngModel)]='email' name='email' required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></ion-input>
+        </ion-item>
+        <ion-item>
+            <!-- <ion-label>Senha</ion-label> -->
+            <ion-input class="campo" placeholder="Senha" style="text-align: center; color: rgb(0, 255, 255);" type="password" [(ngModel)]='senha' name="senha" required #s="ngModel" minlength="6">
             </ion-input>
 
         </ion-item>
@@ -56,5 +70,11 @@
         </ion-grid>
     </div>
 
+        <ion-button class="botao" expand="block" type="submit" (click)="login()">Entrar</ion-button>
+        <!-- <ion-button expand="block" type="reset" color="danger">Cancelar</ion-button> -->
+        <ion-title style="text-align: center; color: rgb(0, 85, 165);">Não tem Cadastro?</ion-title>
+        <ion-title style="text-align: center; color: rgb(0, 255, 255);">Cadastre-se!</ion-title>
+
+    </div>
 
 </ion-content>

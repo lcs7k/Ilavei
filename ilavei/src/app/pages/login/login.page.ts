@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MsgService } from 'src/app/services/msg.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -18,6 +19,7 @@ export class LoginPage implements OnInit {
     private router:Router,
     private msg:MsgService,
     private userService:UserServiceService
+    private msg:MsgService
   ) { }
 
   ngOnInit() {
@@ -27,6 +29,8 @@ login(){
   this.auth.signInWithEmailAndPassword(this.email, this.senha).then(
     res=>{
        this.router.navigate(['']);
+
+      this.router.navigate(['']);
     },
     error=>{
       this.msg.presentAlert("Erro","Usuario Não Cadastrado!");

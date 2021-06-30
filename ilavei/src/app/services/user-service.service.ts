@@ -7,6 +7,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from "@angular/router";
 
 
+
 @Injectable({
   providedIn: "root"
 })
@@ -44,6 +45,25 @@ export class UserServiceService {
       error => {
 
       }
+
+    private firedb:AngularFirestore,
+    private auth:AngularFireAuth
+  ) { }
+
+    add(usuario:User){
+    return this.auth.createUserWithEmailAndPassword(usuario.email,usuario.senha).then(
+
+     res => { 
+    return this.firedb.collection<User>("usuarios").doc(res.user.uid).set({
+        nome : usuario.nome,
+        email: usuario.email,
+        senha: null,
+      });
+      
+     },
+     error=>{
+
+     }
     );
   }
 
@@ -100,4 +120,5 @@ export class UserServiceService {
   }
 
 
+=======
 }

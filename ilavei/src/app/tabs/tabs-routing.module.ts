@@ -29,10 +29,16 @@ const routes: Routes = [
         loadChildren: () => import('../pages/login/login.module').then(m => m.LoginPageModule)
       },
       //Usuario
+     
       {
         path: 'userAdd',
         loadChildren: () => import('../pages/user-add/user-add.module').then(m => m.UserAddPageModule)
       },
+      {
+        path: 'login',
+        loadChildren: () => import('../pages/login/login.module').then( m => m.LoginPageModule)
+      },
+
       {
         path: 'userAdd/:key',
         loadChildren: () => import('../pages/user-add/user-add.module').then(m => m.UserAddPageModule)
@@ -67,6 +73,16 @@ const routes: Routes = [
         path: 'conta',
         loadChildren: () => import('../pages/conta/conta.module').then(m => m.ContaPageModule)
       },
+      
+      {
+        path: 'ordem/:key',
+        loadChildren: () => import('../pages/ordem-servico/ordem-servico.module').then( m => m.OrdemServicoPageModule)
+      },
+
+      {
+        path: 'pagamento/:key',
+        loadChildren: () => import('../pages/pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+      },
 
       {
         path: 'notificacao',
@@ -80,6 +96,10 @@ const routes: Routes = [
         path: 'termos',
         loadChildren: () => import('../pages/termos/termos.module').then(m => m.TermosPageModule)
       },
+=======
+      
+      
+      
       {
         path: '',
         redirectTo: '/tabs/tab1',

@@ -2,6 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { PagamentoPage } from './pagamento.page';
+=======
+import {PagamentoPage } from './pagamento.page';
+
 
 describe('PagamentoPage', () => {
   let component: PagamentoPage;
