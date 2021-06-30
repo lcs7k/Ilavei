@@ -12,38 +12,48 @@
         </ion-list>
         <ion-item lines="none">
             <ion-label>
+                
 
                 {{valor|currency:'BRL'}}
             </ion-label>
             <ion-label *ngIf="valor">
+                
 
                 <ion-button color="secondary" (click)="confordem()">Confirmar</ion-button>
+                
             </ion-label>
         </ion-item>
-        <div>
-            <ion-icon routerLink="/tabs/tab2" name="arrow-back-outline"></ion-icon>
-        </div>
+        
     </ion-card>
-
+    
     <ion-card>
-
+        
         <ion-item *ngFor="let od of servico.listaordem">
             <ion-list>{{od.nome}}.{{od.valor}}</ion-list>
 
         </ion-item>
 
-
+       
 
         <ion-item>
-            <ion-label>Hair Color</ion-label>
-            <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-                <ion-select-option value="brown">Brown</ion-select-option>
-                <ion-select-option value="blonde">Blonde</ion-select-option>
-                <ion-select-option value="black">Black</ion-select-option>
-                <ion-select-option value="red">Red</ion-select-option>
+            
+            
+            <ion-label> Pagamento</ion-label>
+            <ion-select value="brown"  okText="Pagar" cancelText="Voltar">
+               
+                <ion-select-option value="brown">Pix</ion-select-option>
+                <ion-select-option value="blonde">Débito</ion-select-option>
+                <ion-select-option value="black">Crédito</ion-select-option>
+                <ion-select-option value="red">Dinheiro</ion-select-option>
+                
             </ion-select>
         </ion-item>
+        
     </ion-card>
+
+    <div class="seta">
+        <ion-icon routerLink="/tabs/tab2" name="arrow-back-outline"></ion-icon>
+    </div>
 
 
 </ion-content>

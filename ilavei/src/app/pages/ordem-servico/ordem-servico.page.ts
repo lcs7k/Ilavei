@@ -7,6 +7,7 @@ import { OrdemService } from 'src/app/services/ordem.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { User } from 'src/app/models/user';
 import { Servico } from 'src/app/models/servico';
+import { Pagamento } from 'src/app/models/pagamento';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class OrdemServicoPage implements OnInit {
   user: User = new User;
   key: string = null;
   userkey: string = null;
+  pagamento: Pagamento = new Pagamento;
 
 
 
@@ -100,5 +102,10 @@ export class OrdemServicoPage implements OnInit {
     this.servico.userkey = this.userkey
     console.log(this.servico);
 
+    
+
   }
+
+  
 }
+
