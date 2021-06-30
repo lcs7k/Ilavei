@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+=======
 import { ActivatedRoute, Router } from '@angular/router';
 import { MsgService } from 'src/app/services/msg.service';
 import { Pagamento } from 'src/app/models/pagamento';
@@ -10,6 +11,15 @@ import { PagamentoService } from 'src/app/services/pagamento.service';
   templateUrl: './pagamento.page.html',
   styleUrls: ['./pagamento.page.scss'],
 })
+export class PagamentoPage implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
 export class PagamentoPage  implements OnInit {
   
   pagamento: Pagamento = new Pagamento;

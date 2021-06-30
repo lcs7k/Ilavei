@@ -13,6 +13,8 @@ export class EnderecoAddPage implements OnInit {
 
   endereco: Endereco = new Endereco();
   userkey: string = null;
+  key:string = null;
+=======
 
   constructor(
     private enderecoService: EnderecoService,
@@ -22,6 +24,11 @@ export class EnderecoAddPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.key = this.activadeRouter.snapshot.paramMap.get('key');
+    this.userkey = this.activadeRouter.snapshot.paramMap.get('userkey');
+    this.endereco.userkey = this.userkey; 
+    this.getEndereco(this.key)
+
     this.userkey = this.activadeRouter.snapshot.paramMap.get('key');
     this.endereco.userkey = this.userkey;
     //this.getEndereco(this.key)
@@ -61,9 +68,25 @@ export class EnderecoAddPage implements OnInit {
     )
   }
 
-
+  
   salvar() {
     try {
+      this.msg.presentLoading();  
+      this.enderecoService.add(this.endereco).then(
+        res => {
+          console.log('Dados Salvos firebase...', res);
+          this.msg.dismissLoading();
+          this.msg.presentAlert('Aviso', 'Enderteço Cadastrado.');
+          this.endereco = new Endereco();
+          this.router.navigate(['/tabs/enderecoconf']);
+        },
+        error => {
+          console.error("Erro ao salvar.", error);
+          this.msg.dismissLoading();
+          this.msg.presentAlert("Error", "Não foi possivel salvar.");
+        }
+      )
+
        this.msg.presentLoading();
         this.enderecoService.add(this.endereco).then(
           res => {
@@ -80,22 +103,3 @@ export class EnderecoAddPage implements OnInit {
           }
         )
       
-    } catch (error) {
-      console.error("Erro ao salvar.", error);
-      this.msg.dismissLoading();
-      this.msg.presentAlert("Error", "Não foi possivel conectar.");
-    }
-
-  }
-
-  doRefresh(event) {
-    console.log('Begin async operation');
-    if (this.getEndereco(this.userkey)) {
-      //setTimeout(() => {
-      console.log('Async operation has ended');
-      event.target.complete();
-      //}, 2000);
-    }
-  }
-
-}

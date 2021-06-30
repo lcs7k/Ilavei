@@ -23,10 +23,16 @@ const routes: Routes = [
         path: 'tab4',
         loadChildren: () => import('../tab4/tab4.module').then(m => m.Tab4PageModule)
       },
+
+      {
+        path: 'login',
+        loadChildren: () => import('../pages/login/login.module').then(m => m.LoginPageModule)
+      },
+      //Usuario
      
       {
         path: 'userAdd',
-        loadChildren: () => import('../pages/user-add/user-add.module').then( m => m.UserAddPageModule)
+        loadChildren: () => import('../pages/user-add/user-add.module').then(m => m.UserAddPageModule)
       },
       {
         path: 'login',
@@ -35,18 +41,37 @@ const routes: Routes = [
 
       {
         path: 'userAdd/:key',
-        loadChildren: () => import('../pages/user-add/user-add.module').then( m => m.UserAddPageModule)
+        loadChildren: () => import('../pages/user-add/user-add.module').then(m => m.UserAddPageModule)
       },
-
       {
         path: 'user-perfil/:key',
-        loadChildren: () => import('../pages/user-perfil/user-perfil.module').then( m => m.UserPerfilPageModule)
+        loadChildren: () => import('../pages/user-perfil/user-perfil.module').then(m => m.UserPerfilPageModule)
       },
-
-
+      //endereco
+      {
+        path: 'endereco-add/user/:userkey',
+        loadChildren: () => import('../pages/endereco-add/endereco-add.module').then(m => m.EnderecoAddPageModule)
+      },
       {
         path: 'endereco-add/:key',
-        loadChildren: () => import('../pages/endereco-add/endereco-add.module').then( m => m.EnderecoAddPageModule)
+        loadChildren: () => import('../pages/endereco-add/endereco-add.module').then(m => m.EnderecoAddPageModule)
+      },
+      {
+        path: 'enderecoconf',
+        loadChildren: () => import('../pages/enderecoconf/enderecoconf.module').then(m => m.EnderecoconfPageModule)
+      },
+      {
+        path: 'endereco-list',
+        loadChildren: () => import('../pages/endereco-list/endereco-list.module').then(m => m.EnderecoListPageModule)
+      },
+
+      {
+        path: 'ajuda',
+        loadChildren: () => import('../pages/ajuda/ajuda.module').then(m => m.AjudaPageModule)
+      },
+      {
+        path: 'conta',
+        loadChildren: () => import('../pages/conta/conta.module').then(m => m.ContaPageModule)
       },
       
       {
@@ -59,6 +84,19 @@ const routes: Routes = [
         loadChildren: () => import('../pages/pagamento/pagamento.module').then( m => m.PagamentoPageModule)
       },
 
+      {
+        path: 'notificacao',
+        loadChildren: () => import('../pages/notificacao/notificacao.module').then(m => m.NotificacaoPageModule)
+      },
+      {
+        path: 'pagamento',
+        loadChildren: () => import('../pages/pagamento/pagamento.module').then(m => m.PagamentoPageModule)
+      },
+      {
+        path: 'termos',
+        loadChildren: () => import('../pages/termos/termos.module').then(m => m.TermosPageModule)
+      },
+=======
       
       
       
@@ -80,4 +118,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

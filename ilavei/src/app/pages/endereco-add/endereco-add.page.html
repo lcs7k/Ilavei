@@ -1,10 +1,16 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>Cadastro Usuário</ion-title>
+        <ion-title slot="start"><img style="display: block;  " src="assets/back.png" routerLink="/tabs/enderecoconf">
+        </ion-title>
+        <ion-title slot="end" > Novo Endereço</ion-title>
     </ion-toolbar>
 </ion-header>
 
+
+
+
 <ion-content>
+    
 
     <!-- Default Refresher -->
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
@@ -50,7 +56,11 @@
 
         <!-- <ion-item> -->
         <ion-button expand="block" type="submit" [disabled]="fc.invalid">Salvar</ion-button>
+        <ion-button expand="block" type="reset" color="danger" routerlink="/tabs/enderecoconf">Cancelar</ion-button>
+=======
         <ion-button expand="block" type="reset" color="danger" routerlink="/tabs/user-perfil/{{userkey}}">Cancelar</ion-button>
         <!-- </ion-item> -->
     </form>
+
+    
 </ion-content>

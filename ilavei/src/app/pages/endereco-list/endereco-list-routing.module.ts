@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { EnderecoListPageModule } from './endereco-list.module';
 
-import { EnderecoListPage } from './endereco-list.page';
+
 
 const routes: Routes = [
   {
     path: '',
-    component: EnderecoListPage
+    component: EnderecoListPageModule
   }
 ];
 

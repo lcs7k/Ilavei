@@ -6,7 +6,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { EnderecoListPageRoutingModule } from './endereco-list-routing.module';
 
-import { EnderecoListPage } from './endereco-list.page';
 
 @NgModule({
   imports: [
@@ -15,6 +14,5 @@ import { EnderecoListPage } from './endereco-list.page';
     IonicModule,
     EnderecoListPageRoutingModule
   ],
-  declarations: [EnderecoListPage]
 })
 export class EnderecoListPageModule {}

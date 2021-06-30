@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { MsgService } from 'src/app/services/msg.service';
+import { UserServiceService } from 'src/app/services/user-service.service';
+
 
 @Component({
   selector: 'app-login',
@@ -15,6 +17,8 @@ export class LoginPage implements OnInit {
   constructor(
     private auth:AngularFireAuth,
     private router:Router,
+    private msg:MsgService,
+    private userService:UserServiceService
     private msg:MsgService
   ) { }
 
@@ -24,6 +28,8 @@ export class LoginPage implements OnInit {
 login(){
   this.auth.signInWithEmailAndPassword(this.email, this.senha).then(
     res=>{
+       this.router.navigate(['']);
+
       this.router.navigate(['']);
     },
     error=>{
@@ -34,3 +40,6 @@ login(){
 }
 
 }
+
+
+

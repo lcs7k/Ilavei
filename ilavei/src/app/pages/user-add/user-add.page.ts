@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { Storage } from '@ionic/storage';
-import { UserServiceService } from '../../services/user-service.service';
+import {UserServiceService} from '../../services/user-service.service';
 import { MsgService } from '../../services/msg.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -19,7 +19,7 @@ export class UserAddPage implements OnInit {
   constructor(
     private storage: Storage,
     // public alertController: AlertController,
-    private userService: UserServiceService,
+    private userServiceService: UserServiceService,
     // public toastController: ToastController,
     protected msg: MsgService,
     private router: Router,
@@ -33,7 +33,7 @@ export class UserAddPage implements OnInit {
 
   async getUser(key) {
     if (key) {
-      await this.userService.get(key).subscribe(
+      await this.userServiceService.get(key).subscribe(
         res => {
           this.user = res;
           return true;
@@ -50,7 +50,7 @@ export class UserAddPage implements OnInit {
     try {
       this.msg.presentLoading();
       if (this.key) {
-        this.userService.update(this.user, this.key).then(
+        this.userServiceService.update(this.user, this.key).then(
           res => {
             console.log('Dados Salvos firebase...', res);
             this.msg.dismissLoading();
@@ -65,7 +65,7 @@ export class UserAddPage implements OnInit {
           }
         )
       } else {
-        this.userService.add(this.user).then(
+        this.userServiceService.add(this.user).then(
           res => {
             console.log('Dados Salvos firebase...', res);
             this.storage.set('nome', this.user.nome);
