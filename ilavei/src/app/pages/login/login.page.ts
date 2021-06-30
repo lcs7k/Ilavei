@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
     private auth:AngularFireAuth,
     private router:Router,
     private msg:MsgService,
-    private userSerice:UserServiceService
+    private userService:UserServiceService
   ) { }
 
   ngOnInit() {
@@ -36,3 +36,6 @@ login(){
 }
 
 }
+
+
+

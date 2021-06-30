@@ -39,4 +39,7 @@ key: string = null;
 
     )
   }
+  sair(){
+    this.userService.logout();
+  }
 }

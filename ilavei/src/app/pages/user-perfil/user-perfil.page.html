@@ -26,7 +26,12 @@
             <ion-label>Email:{{user.email}}</ion-label>
         </ion-item>
 
-
+        <ion-item (click)="sair()">
+            <ion-icon slot="start" name="exit-outline" style="color:#3575AC"></ion-icon>
+            <ion-label>
+                <h3>Sair</h3>
+            </ion-label>
+        </ion-item>
         <!-- <ion-button routerLink="/tabs/endereco-add/{{key}}">
             <ion-icon name="map-outline"></ion-icon>
         </ion-button> -->

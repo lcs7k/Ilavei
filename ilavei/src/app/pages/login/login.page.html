@@ -14,18 +14,18 @@
 
         <h1 style="text-align: center; color: rgb(0, 85, 165);">Login</h1>
 
-        <ion-item>
+        <ion-item lines="none">
             <!-- <ion-label>E-mail</ion-label> -->
-            <ion-input class="campo" placeholder="Email" style="text-align: center; color: rgb(0, 85, 165);" type="email" [(ngModel)]='email' name='email' required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></ion-input>
+            <ion-input class="campo" placeholder="Email" style="text-align: center; color: rgb(0, 85, 165);" type="email" [(ngModel)]='email' name='email' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item lines="none">
             <!-- <ion-label>Senha</ion-label> -->
-            <ion-input class="campo" placeholder="Senha" style="text-align: center; color: rgb(0, 85, 165);" type="password" [(ngModel)]='senha' name="senha" required #s="ngModel" minlength="6">
+            <ion-input class="campo" placeholder="Senha" style="text-align: center; color: rgb(0, 85, 165);" type="password" [(ngModel)]='senha' name="senha" #s="ngModel" minlength="6">
             </ion-input>
 
         </ion-item>
 
-        <ion-button class="botao" expand="block" type="submit" (click)="login()">Entrar</ion-button>
+        <ion-button class="botao" expand="block" type="button" (click)="login()">Entrar</ion-button>
         <!-- <ion-button expand="block" type="reset" color="danger">Cancelar</ion-button> -->
         <br>
 
