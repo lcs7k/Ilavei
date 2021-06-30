@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {EnderecoService } from '../../services/endereco.service';
+import { EnderecoService } from '../../services/endereco.service';
+import { MsgService } from '../../services/msg.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MsgService } from 'src/app/services/msg.service';
-import { Endereco } from 'src/app/models/endereco';
+import { Endereco } from '../../models/endereco';
 
 @Component({
   selector: 'app-endereco-add',
@@ -13,13 +13,9 @@ export class EnderecoAddPage implements OnInit {
 
   endereco: Endereco = new Endereco();
   userkey: string = null;
-  EnderecoService: any;
 
   constructor(
-    
-    // public alertController: AlertController,
-    private userService: EnderecoService,
-    // public toastController: ToastController,
+    private enderecoService: EnderecoService,
     protected msg: MsgService,
     private router: Router,
     private activadeRouter: ActivatedRoute
@@ -27,12 +23,13 @@ export class EnderecoAddPage implements OnInit {
 
   ngOnInit() {
     this.userkey = this.activadeRouter.snapshot.paramMap.get('key');
-   
+    this.endereco.userkey = this.userkey;
+    //this.getEndereco(this.key)
   }
 
   async getEndereco(key) {
     if (key) {
-      await this.EnderecoService.get(key).subscribe(
+      await this.enderecoService.get(key).subscribe(
         res => {
           this.endereco = res;
           return true;
@@ -46,14 +43,12 @@ export class EnderecoAddPage implements OnInit {
   }
 
   buscaCEP() {
-    this.EnderecoService.pegaCEP(this.endereco.cep).subscribe(
+    this.enderecoService.pegaCEP(this.endereco.cep).subscribe(
       res => {
         console.log(res);
         if (res.erro) {
           this.msg.presentToast("CEP não localizado!");
         } else {
-          //this.user = res;
-          //this.Endereco.cep = res.cep;
           this.endereco.logradouro = res.logradouro;
           this.endereco.localidade = res.localidade;
           this.endereco.bairro = res.bairro;
@@ -69,30 +64,14 @@ export class EnderecoAddPage implements OnInit {
 
   salvar() {
     try {
-      this.msg.presentLoading();
-      if (this.userkey) {
-        this.EnderecoService.update(this.endereco, this.userkey).then(
+       this.msg.presentLoading();
+        this.enderecoService.add(this.endereco).then(
           res => {
             console.log('Dados Salvos firebase...', res);
             this.msg.dismissLoading();
-            this.msg.presentAlert('Alerta', 'Usuário atualizado.');
+            this.msg.presentAlert('Alerta', 'Endereço cadastrado.');
             this.endereco = new Endereco();
-            this.router.navigate(['']);
-          },
-          error => {
-            console.error("Erro ao salvar.", error);
-            this.msg.dismissLoading();
-            this.msg.presentAlert("Error", "Não foi possivel atualizar.");
-          }
-        )
-      } else {
-        this.EnderecoService.add(this.endereco).then(
-          res => {
-            console.log('Dados Salvos firebase...', res)
-            this.msg.dismissLoading();
-            this.msg.presentAlert('Alerta', 'Usuário cadastrado.');
-            this.endereco = new Endereco();
-            this.router.navigate(['']);
+            this.router.navigate(['/tabs/user-perfil',this.userkey]);
           },
           error => {
             console.error("Erro ao salvar.", error);
@@ -100,7 +79,7 @@ export class EnderecoAddPage implements OnInit {
             this.msg.presentAlert("Error", "Não foi possivel salvar.");
           }
         )
-      }
+      
     } catch (error) {
       console.error("Erro ao salvar.", error);
       this.msg.dismissLoading();

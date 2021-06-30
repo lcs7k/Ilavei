@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       {
         path: 'tab1',
-        loadChildren: () => import('../pages/user-list/user-list.module').then(m => m.UserListPageModule)
+        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
       },
       {
         path: 'tab2',
@@ -20,9 +20,19 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
+        path: 'tab4',
+        loadChildren: () => import('../tab4/tab4.module').then(m => m.Tab4PageModule)
+      },
+     
+      {
         path: 'userAdd',
         loadChildren: () => import('../pages/user-add/user-add.module').then( m => m.UserAddPageModule)
       },
+      {
+        path: 'login',
+        loadChildren: () => import('../pages/login/login.module').then( m => m.LoginPageModule)
+      },
+
       {
         path: 'userAdd/:key',
         loadChildren: () => import('../pages/user-add/user-add.module').then( m => m.UserAddPageModule)
@@ -38,7 +48,19 @@ const routes: Routes = [
         path: 'endereco-add/:key',
         loadChildren: () => import('../pages/endereco-add/endereco-add.module').then( m => m.EnderecoAddPageModule)
       },
+      
+      {
+        path: 'ordem/:key',
+        loadChildren: () => import('../pages/ordem-servico/ordem-servico.module').then( m => m.OrdemServicoPageModule)
+      },
 
+      {
+        path: 'pagamento/:key',
+        loadChildren: () => import('../pages/pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+      },
+
+      
+      
       
       {
         path: '',

@@ -1,0 +1,27 @@
+<form class="checkout">
+    <div class="checkout-header">
+        <h1 class="checkout-title">
+
+            Insira seu Dados do Cartão
+
+        </h1>
+    </div>
+    <p>
+        <input type="text" class="checkout-input checkout-name" placeholder="Seu Nome">
+        <input type="text" class="checkout-input checkout-exp" placeholder="MM">
+        <input type="text" class="checkout-input checkout-exp" placeholder="YY">
+    </p>
+    <p>
+        <input type="text" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111">
+        <input type="text" class="checkout-input checkout-cvc" placeholder="CVV">
+    </p>
+    <p>
+        <input type="submit" (click)="valorservico()" class="checkout-btn">
+    </p>
+
+    <div class="icon">
+        <ion-icon routerLink="/tabs/tab2" name="arrow-back-outline"></ion-icon>
+
+
+    </div>
+</form>
