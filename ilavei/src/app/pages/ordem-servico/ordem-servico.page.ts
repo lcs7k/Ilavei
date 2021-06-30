@@ -24,6 +24,7 @@ export class OrdemServicoPage implements OnInit {
   key: string = null;
   userkey: string = null;
   pagamento: Pagamento = new Pagamento;
+  
 
 
 
@@ -102,6 +103,25 @@ export class OrdemServicoPage implements OnInit {
     this.servico.userkey = this.userkey
     console.log(this.servico);
 
+  }
+    
+    
+  pagaordem() {
+      this.pagamento.listaordem=[];
+      // for (let x = 0; x < this.listaOrdem.length; x++) {
+      //   if (this.listaOrdem[x].calculo) {
+      //     this.servico.listaordem.push(this.listaOrdem[x])
+      //    }
+      // }
+      this.listaOrdem.forEach(kkkk=>{
+        if (kkkk.calculo) {
+          this.pagamento.listaordem.push(kkkk)
+         }
+      })
+      
+      this.servico.userkey = this.userkey
+      console.log(this.pagamento);
+  
     
 
   }
